@@ -3,7 +3,7 @@ package dao
 import (
 	"log"
 
-	. "github.com/mlabouardy/movies-restapi/models"
+	. "github.com/scottpeterman/movies-restapi/models"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -21,6 +21,8 @@ const (
 
 // Establish a connection to database
 func (m *MoviesDAO) Connect() {
+	m.Server = "127.0.0.1"
+	m.Database = "movieDBLocal"
 	session, err := mgo.Dial(m.Server)
 	if err != nil {
 		log.Fatal(err)
